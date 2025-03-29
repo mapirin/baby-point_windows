@@ -5,7 +5,7 @@ let point = Number(urlParams.get("point"))
 returnButton.addEventListener('click', ()=>{
     const selectedRadio = document.querySelectorAll('input[name="stockOptions"]:checked');
     if(selectedRadio){
-        point=point+1;
+        point = point + selectedRadio.value;
         window.opener.postMessage({updatePoint:point}, window.location.origin);
         window.close();
     }else{
