@@ -6,7 +6,7 @@ if(pointDspl.textContent <= 0){
     useButton.disabled = true; 
 }
 
-stockButton.addEventListener('touchend', ()=>{
+stockButton.addEventListener('click', ()=>{
     let point = Number(pointDspl.textContent);
     const modal = window.open(`stockExecute.html?point=${point}`,"_blank","width=400,height=300")
 
@@ -21,7 +21,7 @@ stockButton.addEventListener('touchend', ()=>{
     })
 })
 
-useButton.addEventListener('touchend', ()=>{
+useButton.addEventListener('click', ()=>{
     pointDspl.textContent--;
     //比較時はString→Numberに変換して数値で実行が必要
     if(Number(pointDspl.textContent) <= 0){
