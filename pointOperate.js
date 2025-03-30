@@ -22,9 +22,17 @@ stockButton.addEventListener('click', ()=>{
 })
 
 useButton.addEventListener('click', ()=>{
-    pointDspl.textContent--;
-    //比較時はString→Numberに変換して数値で実行が必要
-    if(Number(pointDspl.textContent) <= 0){
-        useButton.disabled = true;
-    }
+    let point = Number(pointDspl.textContent);
+    const modal = window.open(`useExecute.html?point=${point}`,"_blank","width=400,height=300")
+
+    window.addEventListener(("message"), (e)=>{
+        if(e.origin === window.location.origin){
+            point = e.data.updatePoint;
+            pointDspl.textContent = point;
+            //比較時はString→Numberに変換して数値で実行が必要
+            if(Number(pointDspl.textContent) <= 0){
+                useButton.disabled = true;
+            }
+        }
+    })
 })
